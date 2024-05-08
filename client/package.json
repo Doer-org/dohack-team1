@@ -8,10 +8,13 @@
     "start": "next start",
     "lint": "next lint",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "drizzle:generate": "drizzle-kit introspect:pg --config=drizzle.config.ts"
   },
   "dependencies": {
+    "drizzle-orm": "^0.30.10",
     "next": "14.2.3",
+    "postgres": "^3.4.4",
     "react": "^18",
     "react-dom": "^18"
   },
@@ -28,6 +31,7 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "drizzle-kit": "^0.20.18",
     "eslint": "^8",
     "eslint-config-next": "14.2.3",
     "eslint-plugin-storybook": "^0.8.0",
