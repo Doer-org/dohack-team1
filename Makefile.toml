@@ -21,3 +21,8 @@ docker compose -p ${PROJECT_NAME} \
     -f ${DOCKER_COMPOSE_LOCAL_DATABASE} \
     --env-file ${ENV} up -d
 """
+
+[tasks.sync-schema]
+cwd = "client"
+script_runner = "@shell"
+script = "pnpm drizzle:generate"
