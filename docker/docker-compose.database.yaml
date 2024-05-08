@@ -1,0 +1,17 @@
+version: "3"
+services:
+  dohack-team1-database:
+    build:
+      context: ../database
+      dockerfile: Dockerfile
+      args:
+        - DB_LANG=ja_JP
+    restart: always
+    ports:
+      - ${DB_PORT}:5432
+    volumes:
+      - ../database/init:/docker-entrypoint-initdb.d
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}

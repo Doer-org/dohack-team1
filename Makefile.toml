@@ -1,0 +1,23 @@
+env_files = [
+    { path = "./.env.local", profile = "development" },
+    { path = "./.env", profile = "production" },
+]
+
+[env]
+PROJECT_NAME = "dohack-team1"
+DOCKER_COMPOSE_LOCAL = "./docker/docker-compose.yaml"
+DOCKER_COMPOSE_LOCAL_DATABASE = "./docker/docker-compose.database.yaml"
+
+[tasks.down]
+script_runner = "@shell"
+script = "docker compose -p ${PROJECT_NAME} down --rmi all --volumes --remove-orphans"
+
+[tasks.up]
+dependencies = ["down"]
+script_runner = "@shell"
+script = """
+docker compose -p ${PROJECT_NAME} \
+    -f ${DOCKER_COMPOSE_LOCAL} \
+    -f ${DOCKER_COMPOSE_LOCAL_DATABASE} \
+    --env-file ${ENV} up -d
+"""
