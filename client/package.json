@@ -12,6 +12,9 @@
     "drizzle:generate": "drizzle-kit introspect:pg --config=drizzle.config.ts"
   },
   "dependencies": {
+    "@radix-ui/colors": "^3.0.0",
+    "@radix-ui/react-icons": "^1.3.0",
+    "@radix-ui/themes": "^3.0.3",
     "drizzle-orm": "^0.30.10",
     "next": "14.2.3",
     "postgres": "^3.4.4",
