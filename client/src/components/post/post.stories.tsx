@@ -25,13 +25,14 @@ type Story = StoryObj<typeof meta>;
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Primary: Story = {
   args: {
-    userName: "Alice",
-    contents: "Hello, world!",
-    reactions: [
-      { kind: "like", x: 130, y: 20, theta: 0.25, scale: 3 },
-      { kind: "love", x: 50, y: -20, theta: 0, scale: 2 },
-      { kind: "like", x: 0, y: 0, theta: 0, scale: 1 },
-      { kind: "like", x: 0, y: 0, theta: 0, scale: 1 },
-    ],
+    post: {
+      contents: "hello world",
+      reactions: [
+        { kind: "like", x: 130, y: 20, theta: 0.25, scale: 3 },
+        { kind: "love", x: 50, y: -20, theta: 0, scale: 2 },
+        { kind: "like", x: 0, y: 0, theta: 0, scale: 1 },
+        { kind: "like", x: 0, y: 0, theta: 0, scale: 1 },
+      ],
+    },
   },
 };
