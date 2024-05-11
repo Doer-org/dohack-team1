@@ -35,19 +35,26 @@ const PostForm = ({ onSubmit }: { onSubmit: (contents: string) => void }) => {
           defaultValue=""
         />
       </label>
-      <input
-        type="submit"
-        value="post"
+      <div
         style={{
-          textAlign: "right",
-          fontWeight: "normal",
-          fontFamily: "fantasy",
-          padding: "0.5rem 1.5rem",
-          borderRadius: "1rem",
-          border: "double 10px pink",
-          backgroundColor: "hotpink",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "flex-end",
         }}
-      />
+      >
+        <input
+          type="submit"
+          value="post"
+          style={{
+            fontWeight: "normal",
+            fontFamily: "fantasy",
+            padding: "0.5rem 1.5rem",
+            borderRadius: "1rem",
+            border: "double 10px pink",
+            backgroundColor: "hotpink",
+          }}
+        />
+      </div>
     </form>
   );
 };
@@ -69,7 +76,7 @@ export default function Page() {
               }}
             >
               {" "}
-              いっぱいリアクション
+              いっぱい リアクト！
             </Heading>
           </Box>
         </Box>
