@@ -1,10 +1,22 @@
 import { gray } from "@radix-ui/colors";
 export type Reaction = {
-  kind: "like" | "love";
+  kind: "like" | "love" | "dog" | "clover";
   x: number;
   y: number;
   theta: number;
   scale: number;
+};
+export type ReactionProps = Pick<Reaction, "kind">;
+const Reaction = (props: ReactionProps) => {
+  if (props.kind == "like") {
+    return <> 👍 </>;
+  } else if (props.kind == "dog") {
+    return <> 🐶 </>;
+  } else if (props.kind == "clover") {
+    return <> 🍀 </>;
+  } else {
+    return <> 💖 </>;
+  }
 };
 
 export type Post = {
@@ -64,7 +76,7 @@ export const Post: React.FC<Props> = ({ post, onClick }) => {
             transform: `translate(-50%, -50%) rotate(${reaction.theta}rad) scale(${reaction.scale})`,
           }}
         >
-          {reaction.kind === "like" ? <> 👍 </> : <> 💛</>}
+          <Reaction kind={reaction.kind} />
         </div>
       ))}
     </div>
