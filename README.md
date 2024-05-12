@@ -60,7 +60,5 @@ dohack-team1 のリポジトリです
 
 ![Alt text](image.png)
 
-スライド URL
-https://docs.google.com/presentation/d/1uKRdniIHelG9sQN6LRhWRzKgiLxPwe-6k9AU5wQa0TE/edit#slide=id.g2db67d322b7_6_53
-
+スライド URL https://docs.google.com/presentation/d/1uKRdniIHelG9sQN6LRhWRzKgiLxPwe-6k9AU5wQa0TE/edit?usp=sharing
 <br>
