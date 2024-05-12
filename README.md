@@ -20,6 +20,10 @@ pnpm dev
 ```
 
 ## DB
+initsplを変更-> 
+docker起動確認
+cargo make up
+cargo make sync-schema
 
 ```sh
 cargo make sync-schema

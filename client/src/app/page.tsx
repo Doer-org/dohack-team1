@@ -3,6 +3,7 @@ import { Post } from "@/components";
 
 import { Box, Container, Flex, Heading } from "@radix-ui/themes";
 import { FormEventHandler, useRef, useState } from "react";
+import { v4 as uuidv4 } from 'uuid';
 
 const PostForm = ({ onSubmit }: { onSubmit: (contents: string) => void }) => {
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
@@ -51,6 +52,7 @@ export default function Page() {
         </Box>
         <PostForm
           onSubmit={(str) => {
+            const id = uuidv4();
             setPosts([
               {
                 contents: str,

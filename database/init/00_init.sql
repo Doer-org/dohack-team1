@@ -10,3 +10,29 @@ INSERT INTO locations
 VALUES ('011002', '北海道', '札幌市'),
        ('012025', '北海道', '函館市'),
        ('012033', '北海道', '小樽市');
+
+CREATE TABLE posts
+(
+    post_id UUID PRIMARY KEY,
+    contents TEXT NOT NULL
+);
+
+-- INSERT INTO posts (contents)
+-- VALUES ('text1'),
+--        ('text2'),
+--        ('text3');
+
+CREATE TABLE reactions
+(
+    reaction_id UUID PRIMARY KEY,
+    post_id UUID NOT NULL,
+    kind VARCHAR(10) NOT NULL,
+    x INTEGER NOT NULL,
+    y INTEGER NOT NULL,
+    theta INTEGER NOT NULL,
+    scale INTEGER NOT NULL,
+    FOREIGN KEY (post_id) REFERENCES posts(post_id)
+);
+
+-- INSERT INTO reactions (post_id, kind, x, y, theta, scale)
+-- VALUES ('011002', 'like', 2, 2, 3, 4);
