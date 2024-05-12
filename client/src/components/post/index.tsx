@@ -1,20 +1,34 @@
 import { gray } from "@radix-ui/colors";
 export type Reaction = {
-  kind: "like" | "love";
+  reactionId?: string;
+  kind: "like" | "love" | "dog" | "clover";
   x: number;
   y: number;
   theta: number;
   scale: number;
 };
+export type ReactionProps = Pick<Reaction, "kind">;
+const Reaction = (props: ReactionProps) => {
+  if (props.kind == "like") {
+    return <> 👍 </>;
+  } else if (props.kind == "dog") {
+    return <> 🐶 </>;
+  } else if (props.kind == "clover") {
+    return <> 🍀 </>;
+  } else {
+    return <> 💖 </>;
+  }
+};
 
 export type Post = {
+  postId?: string;
   contents: string;
   reactions: Reaction[];
 };
 
 export type Props = {
   post: Post;
-  onClick?: (x: number, y: number) => void;
+  onClick?: (x: number, y: number, postId: string) => void;
 };
 
 export const Post: React.FC<Props> = ({ post, onClick }) => {
@@ -32,7 +46,7 @@ export const Post: React.FC<Props> = ({ post, onClick }) => {
         const rect = e.currentTarget.getBoundingClientRect();
         const relX = e.clientX - rect.left;
         const relY = e.clientY - rect.top;
-        onClick?.(relX / rect.width, relY / rect.height);
+        onClick?.(relX / rect.width, relY / rect.height, post.postId||"");
       }}
     >
       <div
@@ -64,7 +78,7 @@ export const Post: React.FC<Props> = ({ post, onClick }) => {
             transform: `translate(-50%, -50%) rotate(${reaction.theta}rad) scale(${reaction.scale})`,
           }}
         >
-          {reaction.kind === "like" ? <> 👍 </> : <> 💛</>}
+          <Reaction kind={reaction.kind} />
         </div>
       ))}
     </div>

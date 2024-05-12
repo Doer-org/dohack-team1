@@ -1,10 +1,10 @@
 import { db } from "@/lib/db";
-import { locations } from "@/migrations/schema";
-export type InsertLocationRequest = typeof locations.$inferInsert;
-// POST: /api/locations
+import { reactions } from "@/migrations/schema";
+export type InsertLocationRequest = typeof reactions.$inferInsert;
+// POST: /api/reactions
 export async function POST(request: Request) {
   const body: InsertLocationRequest = await request.json();
-  const result = await db.insert(locations).values(body);
+  const result = await db.insert(reactions).values(body);
   console.log(result);
   return new Response(JSON.stringify(body), {
     headers: {
@@ -12,9 +12,9 @@ export async function POST(request: Request) {
     },
   });
 }
-// GET: /api/locations
+// GET: /api/reactions
 export async function GET() {
-  const locs = await db.select().from(locations).execute();
+  const locs = await db.select().from(reactions).execute();
   return new Response(JSON.stringify(locs), {
     headers: {
       "content-type": "application/json",
