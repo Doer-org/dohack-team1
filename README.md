@@ -1,32 +1,66 @@
-# dohack-team1
+# いっぱい リアクト！
 
-## setup
+### Date
 
-### 環境変数
+2024/05/12 ~ 05/13
+<br>
 
-環境変数とは，OS やプログラムが動作する際に参照される値です．データベースの接続情報や API キー等の実行環境に依存する値や機密情報を`.env`に保存し Git 管理から除外することで，不用意に公開されるリスクを減らします．
+## About
 
-以下の 2 つのファイルを作成し，Discord で受け取った環境変数をコピペしてください．
+---
 
-- `.env.local`（リポジトリのルートディレクトリ配下）
-- `client/.env`（`client/`配下）
+dohack-team1 のリポジトリです
+テーマは「**コミュニケーション促進**」を選択しました
+<br>
 
-### client
+## 概要
 
-```sh
-cd client
-pnpm i
-pnpm dev
-```
+---
 
-## DB
+👤「Discord 過疎ってませんか？」「コミュニケーション滞ってませんか？」
 
-```sh
-cargo make sync-schema
-```
+そこで、do’er のコミュニケーション促進を目的とした「**いっぱい　リアクト！**」という新 SNS を開発しました！📱
 
-## 自由欄
+## 機能
 
-### メモ(rin 用)
+---
 
-`http://localhost:3000/debug/rin`
+![Alt text](image-2.png)
+
+### この SNS では
+
+投稿へのリアクションの新たな仕組みを提案します 👍
+
+### 具体的には・・
+
+- 投稿するとリアクションが一目でわかる！？
+  - リアクションをさまざまな絵文字で送れる！
+  - 絵文字を投稿の上に貼り付けることで、楽しくリアクションができる！注目度もわかる ✨
+    → いいねってどうしても数値で測ってしまいますよね 💬
+    視覚的により人の印象に残る形でリアクションが見られるので、Discord 含め他の SNS と差別化できます！
+
+## menber
+
+---
+
+<table>
+ <tr>
+ 　<th>開発人数</th>
+ 　<td>
+     4人<br>
+    <b><a　chef="https://github.com/RyushiAok">@RyushiAok</a><img src="https://github.com/RyushiAok.png" width="50px;" /></b>
+     <b><a chef="https://github.com/rinne17">@rinne17</a><img src="https://github.com/rinne17.png" width="50px;" /></b>><b><a chef="https://github.com/teradayu">@teradayu</a><img src="https://github.com/teradayu.png" width="50px;" /></b> <b><a chef="https://github.com/rlsqo">@rlsqo</a><img src="https://github.com/rlsqo.png" width="50px;" /></b>
+    </td>
+  </tr>
+</table>　
+
+## slide
+
+---
+
+![Alt text](image.png)
+
+スライド URL
+https://docs.google.com/presentation/d/1uKRdniIHelG9sQN6LRhWRzKgiLxPwe-6k9AU5wQa0TE/edit#slide=id.g2db67d322b7_6_53
+
+<br>
