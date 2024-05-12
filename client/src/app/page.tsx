@@ -1,7 +1,8 @@
 "use client";
-import { Post } from "@/components";
+import { Post, ReactionProps } from "@/components";
 
 import { Box, Container, Flex, Heading } from "@radix-ui/themes";
+import { relative } from "path";
 import { FormEventHandler, useRef, useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
 
@@ -19,12 +20,12 @@ const PostForm = ({ onSubmit }: { onSubmit: (contents: string) => void }) => {
   return (
     <form onSubmit={handleSubmit}>
       <label>
-        contents:
+        今何思った？
         <textarea
           ref={textAreaRef}
           style={{
             width: "100%",
-            height: "10rem",
+            height: "5rem",
             padding: "1rem",
             fontSize: "1.25rem",
             borderRadius: "1rem",
@@ -35,7 +36,26 @@ const PostForm = ({ onSubmit }: { onSubmit: (contents: string) => void }) => {
           defaultValue=""
         />
       </label>
-      <input type="submit" value="Submit" />
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "flex-end",
+        }}
+      >
+        <input
+          type="submit"
+          value="post"
+          style={{
+            fontWeight: "normal",
+            fontFamily: "fantasy",
+            padding: "0.5rem 1.5rem",
+            borderRadius: "1rem",
+            border: "double 10px pink",
+            backgroundColor: "hotpink",
+          }}
+        />
+      </div>
     </form>
   );
 };
@@ -47,7 +67,18 @@ export default function Page() {
       <Container size="2" px="4" py="2" align="center">
         <Box py="5">
           <Box>
-            <Heading size="8"> はっかそん</Heading>
+            <Heading
+              size="8"
+              style={{
+                fontWeight: "900",
+                padding: "0.5rem 1.5rem",
+                border: "dashed 2px pink",
+                borderRadius: "1rem",
+              }}
+            >
+              {" "}
+              いっぱい リアクト！
+            </Heading>
           </Box>
         </Box>
         <PostForm
@@ -69,13 +100,20 @@ export default function Page() {
               key={index}
               post={post}
               onClick={(x, y) => {
+                const kinds: ReactionProps[] = [
+                  { kind: "like" },
+                  { kind: "love" },
+                  { kind: "dog" },
+                  { kind: "clover" },
+                ];
+                const kindIndex = Math.floor(Math.random() * kinds.length);
                 const newPosts = [...posts];
                 newPosts[index].reactions.push({
-                  kind: "like",
+                  kind: kinds[kindIndex].kind,
                   x: x * 100,
                   y: y * 100,
-                  theta: 0,
-                  scale: 1.5,
+                  theta: Math.random() - 0.5,
+                  scale: Math.random() * 2 + 1,
                 });
                 setPosts(newPosts);
               }}
