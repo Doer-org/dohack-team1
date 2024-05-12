@@ -27,10 +27,10 @@ CREATE TABLE reactions
     reaction_id UUID PRIMARY KEY,
     post_id UUID NOT NULL,
     kind VARCHAR(10) NOT NULL,
-    x INTEGER NOT NULL,
-    y INTEGER NOT NULL,
-    theta INTEGER NOT NULL,
-    scale INTEGER NOT NULL,
+    x FLOAT NOT NULL,
+    y FLOAT NOT NULL,
+    theta FLOAT NOT NULL,
+    scale FLOAT NOT NULL,
     FOREIGN KEY (post_id) REFERENCES posts(post_id)
 );
 

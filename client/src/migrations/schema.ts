@@ -1,4 +1,4 @@
-import { pgTable, varchar, uuid, text, foreignKey, integer } from "drizzle-orm/pg-core"
+import { pgTable, varchar, uuid, text, foreignKey, doublePrecision } from "drizzle-orm/pg-core"
   import { sql } from "drizzle-orm"
 
 
@@ -18,8 +18,8 @@ export const reactions = pgTable("reactions", {
 	reactionId: uuid("reaction_id").primaryKey().notNull(),
 	postId: uuid("post_id").notNull().references(() => posts.postId),
 	kind: varchar("kind", { length: 10 }).notNull(),
-	x: integer("x").notNull(),
-	y: integer("y").notNull(),
-	theta: integer("theta").notNull(),
-	scale: integer("scale").notNull(),
+	x: doublePrecision("x").notNull(),
+	y: doublePrecision("y").notNull(),
+	theta: doublePrecision("theta").notNull(),
+	scale: doublePrecision("scale").notNull(),
 });
